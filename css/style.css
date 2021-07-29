@@ -4,10 +4,16 @@ body{
     font-size: 14px; /* размер шрифта */
     color: #0A143A; /* цвет текста */
 }
+.container{
+    max-width: 1146px;
+    /* максимальная ширина элемента */
+    margin: auto;
+    /* автоматическое выравнивание по середине */
+}
 .header{
-    max-width: 1146px; /* максимальная ширина элемента */
-    margin: auto; /* автоматическое выравнивание по середине */
     padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 12px;
 }
 .navbar{
     display: flex; /* делаем гибкий  блок */
@@ -77,4 +83,99 @@ body{
 }
 .search-button-text{
     margin-left: 5px;
+}
+.page-content{
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    /* размеры блоков в grid - 9 колонок и 3 колонки */
+    grid-column-gap: 30px; /* расстояние между блоками */
+}
+.card-image{
+    border-radius: 10px;
+    width: 264px;
+    height: 178px;
+    object-fit: cover; /* обрезает фото если не входит в размеры */
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    margin-bottom: 20px;
+}
+.card:not(:nth-child(3n)){
+    margin-right: 20px; /* отступ справа для всех карточек кроме каждой третьей*/
+}
+.card-title{
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    color: #256EEB;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.like{
+    border:none;
+    background-color:#fff;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.card-link{
+    text-decoration: none;
+}
+.card-price{
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 10px;
+    display: block; /* блочный элемент - для срабатывания отступа */
+}
+.card-text{
+    font-size: 14px;
+    line-height: 16px;
+    color: #C4C4C4;
+    margin-bottom: 4px;
+    margin-top: 0;
+}
+.sidebar .page-title{
+    font-size: 18px;
+    line-height: 21px;
+}
+.service{
+    margin-bottom: 25px;
+}
+.service-title{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px; /* высота строки */
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+.service-text{
+    font-size: 14px;
+    line-height: 16px;
+    max-width: 217px;
+}
+.footer-text{
+    display: inline-block; /* для срабатывания отступа */
+    font-size: 14px;
+    line-height: 16px;
+    color: #C4C4C4;
+    margin-bottom: 5px;
+}
+.footer-menu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 16px;
+}
+.footer-link{
+    color: inherit; /* цвет как у родителя */
+    text-decoration: none; /* убираем подчеркивание ссылок */
+    display: inline-block;
+    margin-bottom: 5px;
 }
