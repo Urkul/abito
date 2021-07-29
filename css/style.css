@@ -21,6 +21,11 @@ body{
     justify-content: space-between; /* разбросать элементы по краям */
     margin-bottom: 24px;
 }
+.navbar-panel{
+    flex-grow: 1; /* растянуть по ширине */
+    display: flex; /* сделать гибким - расположить в строку */
+    align-items: center; /* выровнять элементы по середине */
+}
 .logo-image{
     padding-top: 8px;
 }
@@ -88,7 +93,7 @@ body{
     display: grid;
     grid-template-columns: 9fr 3fr;
     /* размеры блоков в grid - 9 колонок и 3 колонки */
-    grid-column-gap: 30px; /* расстояние между блоками */
+    grid-column-gap: 10px; /* расстояние между блоками */
 }
 .card-image{
     border-radius: 10px;
@@ -102,10 +107,15 @@ body{
 }
 .card{
     margin-bottom: 20px;
+    margin-right: 20px;
 }
-.card:not(:nth-child(3n)){
-    margin-right: 20px; /* отступ справа для всех карточек кроме каждой третьей*/
-}
+
+/* отступ справа для всех карточек кроме каждой третьей*/
+/* .card:not(:nth-child(3n)){
+    margin-right: 20px; 
+    
+} */
+
 .icon-like{
     fill: #C4C4C4;
 }
@@ -126,6 +136,25 @@ body{
     overflow-x: hidden; // обрезание текста что не помещается 
     width: 220px; */
 }
+/* прикрепление элемента к нижнему краю */
+.alert{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    background-color: #256EEB;
+    color:#fff;
+    text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+ /* определение элемента в блок для назначения отступов */
+/* .example{
+    display: inline-block;
+    margin-bottom: 100px;
+} */
 .card-header{
     display: flex;
     justify-content: space-between;
@@ -195,6 +224,9 @@ body{
 }
 
 
+.page-content{
+    margin-bottom: 60px;
+}
 .main-single{
     display: flex;
     align-items: flex-start;
@@ -312,4 +344,119 @@ body{
     background-color: #14B4BE;
     border-radius: 5px;
     color:#fff;
+}
+
+/* гамбургер */
+.menu-button{
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    display: none; /* отключение кнопки */
+}
+
+.close-menu{
+    display: none;
+}
+
+/* медиазапросы */
+@media(max-width: 1200px){
+    .container{
+        max-width: 960px;
+    }
+    .card{
+        width: 45%; 
+    }
+    .card-image{
+        width: 100%;
+        height: 200px;
+    }
+    .card-header{
+       max-width: 120%;
+    }
+}
+@media(max-width: 992px) {
+    .container {
+        max-width: 740px;
+    }
+    .card-image {
+        height: 150px;
+    }
+}
+@media(max-width: 768px) {
+    .container {
+        max-width: 560px;
+    }
+    .card{
+        width: 100%;
+    }
+    .page-content{
+        grid-template-columns: 8fr 4fr;
+    }
+    .menu-button {
+        display: block; /* включение кнопки */
+    }
+    .close-menu{
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        cursor: pointer;
+        background-color: #fff;
+        border: none;
+    }
+    .navbar-panel{
+        /* display: none; */
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 9;
+        flex-direction: column; /* выстроить дочерние элементы в столбец */
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s, opacity 0.2s; /* добавление плавности элементу */
+        transform: translateX(100%); /* уберем меню в сторону, его не будет видно */
+        opacity: 0;
+    }
+    .is-open{
+         transform: translateX(0%);
+         /* показываем меню */
+         opacity: 1;
+    }
+    .navbar-menu{
+        margin-left: auto;
+        margin-bottom: 20px;
+    }
+    .menu{
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+    }
+    .menu-item:not(:last-child){
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .button-group{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media(max-width: 576px) {
+    .container {
+        max-width: 90%;
+    }
+    .page-content {
+        grid-template-columns: 12fr;
+    }
+    .card-image {
+        height: 250px;
+    }
+    .card{
+        margin-right: 0;
+    }
+    .search-button-text{
+        display: none;
+    }
 }
